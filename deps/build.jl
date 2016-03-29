@@ -10,6 +10,8 @@ provides(BuildProcess,Autotools(libtarget = "src/.libs/libzmq."*BinDeps.shlib_ex
 
 @windows_only begin
     using WinRPM
+    unshift!(WinRPM.sources, "http://download.opensuse.org/repositories/home:/kelman:/branches:/windows:/mingw:/win64/openSUSE_13.2")
+    WinRPM.update()
     provides(WinRPM.RPM, "zeromq", [zmq], os = :Windows)
 end
 
